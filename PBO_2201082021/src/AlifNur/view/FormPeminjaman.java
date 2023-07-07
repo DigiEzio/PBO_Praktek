@@ -6,6 +6,7 @@ package AlifNur.view;
 
 import AlifNur.Controler.PeminjamanController;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -66,20 +67,20 @@ public class FormPeminjaman extends javax.swing.JFrame {
         this.tblPinjam = tblPinjam;
     }
 
-    public JTextField getTxtKodeAnggota() {
-        return txtKodeAnggota;
+    public JComboBox<String> getCboAnggota() {
+        return cboAnggota;
     }
 
-    public void setTxtKodeAnggota(JTextField txtKodeAnggota) {
-        this.txtKodeAnggota = txtKodeAnggota;
+    public void setCboAnggota(JComboBox<String> cboAnggota) {
+        this.cboAnggota = cboAnggota;
     }
 
-    public JTextField getTxtKodeBuku() {
-        return txtKodeBuku;
+    public JComboBox<String> getCboBuku() {
+        return cboBuku;
     }
 
-    public void setTxtKodeBuku(JTextField txtKodeBuku) {
-        this.txtKodeBuku = txtKodeBuku;
+    public void setCboBuku(JComboBox<String> cboBuku) {
+        this.cboBuku = cboBuku;
     }
 
     public JTextField gettxttglPengembalian() {
@@ -113,8 +114,6 @@ public class FormPeminjaman extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtKodeAnggota = new javax.swing.JTextField();
-        txtKodeBuku = new javax.swing.JTextField();
         txttglPeminjaman = new javax.swing.JTextField();
         txttglPengembalian = new javax.swing.JTextField();
         btnInsert = new javax.swing.JButton();
@@ -123,6 +122,8 @@ public class FormPeminjaman extends javax.swing.JFrame {
         btnDalete = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPinjam = new javax.swing.JTable();
+        cboAnggota = new javax.swing.JComboBox<>();
+        cboBuku = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,10 +147,6 @@ public class FormPeminjaman extends javax.swing.JFrame {
         jLabel3.setText("Tanggal Peminjaman");
 
         jLabel4.setText("Tanggal Pengembalian");
-
-        txtKodeAnggota.setText("jTextField1");
-
-        txtKodeBuku.setText("jTextField2");
 
         txttglPeminjaman.setText("jTextField3");
 
@@ -190,16 +187,20 @@ public class FormPeminjaman extends javax.swing.JFrame {
 
         tblPinjam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Kode Anggota", "Kode Buku", "Tgl Peminjaman", "Tgl Pengembalian", "Selisih"
             }
         ));
         jScrollPane2.setViewportView(tblPinjam);
+
+        cboAnggota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboBuku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,9 +223,9 @@ public class FormPeminjaman extends javax.swing.JFrame {
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txttglPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cboAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cboBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(187, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(btnInsert)
@@ -242,14 +243,14 @@ public class FormPeminjaman extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(txtKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -266,7 +267,7 @@ public class FormPeminjaman extends javax.swing.JFrame {
                     .addComponent(btnDalete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -338,6 +339,8 @@ public class FormPeminjaman extends javax.swing.JFrame {
     private javax.swing.JButton btnDalete;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboAnggota;
+    private javax.swing.JComboBox<String> cboBuku;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -346,9 +349,13 @@ public class FormPeminjaman extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tblPinjam;
-    private javax.swing.JTextField txtKodeAnggota;
-    private javax.swing.JTextField txtKodeBuku;
     private javax.swing.JTextField txttglPeminjaman;
     private javax.swing.JTextField txttglPengembalian;
     // End of variables declaration//GEN-END:variables
+
+
+public Object getTxt() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
+
